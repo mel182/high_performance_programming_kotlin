@@ -38,6 +38,19 @@ fun main() {
 //            println("Received number builder: $it")
 //        }
         println("Finished receiving numbers")
+
+        println("|---------- Filter Example -----------|")
+
+        sendNumbersAsFlow().map {
+            it + 2
+        }.filter {
+            it == 7
+        }.collect {
+            println("Filter result: $it")
+        }
+
+        println("|---------- Filter Example -----------|")
+
     }
 }
 
