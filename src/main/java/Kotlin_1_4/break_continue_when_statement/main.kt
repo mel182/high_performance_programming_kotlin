@@ -8,7 +8,7 @@ fun main() {
     println("Main function called!")
 
     val testList = listOf(
-            2,5,17,
+            2,5,17,18,19
     )
     test(testList)
 }

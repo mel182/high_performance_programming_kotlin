@@ -3,6 +3,10 @@ package concurrency.coroutines_flow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
+import java.net.URLEncoder
+
+
+
 
 fun main() {
 
@@ -24,7 +28,7 @@ fun main() {
         .onEach {
 
             println("Value $it")
-            check( it != 7)
+            check(it != 7)
         }
         .catch { e -> println("Caught exception $e") }
         .onCompletion { println("Flow completed") }
@@ -44,7 +48,7 @@ fun main() {
 // This emit number with delay
 fun sendNumbers(): Flow<Int> = flow {
 
-    val primeList = listOf(2,3,5,7,11,13,17,19,23,29)
+    val primeList = listOf(2, 3, 5, 7, 11, 13, 17, 19, 23, 29)
     primeList.forEach {
         delay(it * 100L)
         emit(it)
@@ -52,9 +56,9 @@ fun sendNumbers(): Flow<Int> = flow {
 }
 
 // This is an example using the 'as flow' builder
-fun sendNumbersAsFlow() = listOf(2,3,5,7,11,13,17,19,23,29).asFlow()
+fun sendNumbersAsFlow() = listOf(2, 3, 5, 7, 11, 13, 17, 19, 23, 29).asFlow()
 
 // This is an example using the 'flow of' builder
-fun flowOfExample() = flowOf("One","Two","Three")
+fun flowOfExample() = flowOf("One", "Two", "Three")
 
 
