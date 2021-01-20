@@ -3,9 +3,7 @@ package delegates
 import kotlin.properties.Delegates
 
 fun main() {
-
     CalculatorMachine(CalculatorBrain2())
-
 }
 
 

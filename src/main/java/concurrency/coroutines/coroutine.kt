@@ -9,10 +9,10 @@ fun main() {
 //    exampleBlocking2()
 //    exampleBlockingDispatcher()
 //    exampleLaunchGlobal()
-    exampleLaunchGlobalWaiting()
+//    exampleLaunchGlobalWaiting()
 //    exampleLaunchCoroutineScope()
 //    exampleLaunchCoroutineWithCustomDispatcher()
-//    exampleAsyncAwait()
+    exampleAsyncAwait()
 //    exampleWithContext()
 }
 //endregion
@@ -151,32 +151,37 @@ fun exampleLaunchCoroutineWithCustomDispatcher(){
 
 //region Example launch coroutine async await
 fun exampleAsyncAwait(){
-    runBlocking {
 
-        // Use this if you want to run things concurrently
-        val startTime = System.currentTimeMillis()
+    CoroutineScope(Dispatchers.IO).launch {
 
-        //region This is the best practice since it takes around 1027 millisecond to executes
-        val deferred1 = async { calculateThings(10) }
-        val deferred2 = async { calculateThings(20) }
-        val deferred3 = async { calculateThings(30) }
+        runBlocking {
 
-        val sum = deferred1.await() + deferred2.await() + deferred3.await()
-        //endregion
+            // Use this if you want to run things concurrently
+            val startTime = System.currentTimeMillis()
 
-        //region This is a bad practice since using await makes the execution takes 3000 millisecond
+            //region This is the best practice since it takes around 1027 millisecond to executes
+            val deferred1 = async { calculateThings(10) }
+            val deferred2 = async { calculateThings(20) }
+            val deferred3 = async { calculateThings(30) }
+
+            val sum = deferred1.await() + deferred2.await() + deferred3.await()
+            //endregion
+
+            //region This is a bad practice since using await makes the execution takes 3000 millisecond
 //        val deferred1 = async { calculateThings(10) }.await()
 //        val deferred2 = async { calculateThings(20) }.await()
 //        val deferred3 = async { calculateThings(30) }.await()
 //
 //        val sum = deferred1 + deferred2 + deferred3
-        //endregion
+            //endregion
 
-        println("async/await result = $sum")
+            println("async/await result = $sum")
 
-        val endTime = System.currentTimeMillis()
+            val endTime = System.currentTimeMillis()
 
-        println("Time taken: ${endTime - startTime}")
+            println("Time taken: ${endTime - startTime}")
+        }
+
     }
 }
 //endregion
