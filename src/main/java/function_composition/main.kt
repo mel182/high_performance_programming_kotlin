@@ -1,10 +1,8 @@
 package function_composition
 
-import java.util.function.BiPredicate
-
 fun main() {
 
-    val students = listOf<Student>(
+    val students = listOf(
             Student("Eric",25),
             Student("Melchior",33)
     )
@@ -16,7 +14,6 @@ fun main() {
     val studentsFiltered2 = students.filter(::ageMoreThan24 and ::firstNameStartWithE)
 
     println("Student filtered 2: $studentsFiltered2")
-
 }
 
 // Function composition

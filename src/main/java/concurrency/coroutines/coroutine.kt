@@ -152,7 +152,7 @@ fun exampleLaunchCoroutineWithCustomDispatcher(){
 //region Example launch coroutine async await
 fun exampleAsyncAwait(){
 
-    CoroutineScope(Dispatchers.IO).launch {
+        println("Has entered IO coroutine scope!")
 
         runBlocking {
 
@@ -160,29 +160,29 @@ fun exampleAsyncAwait(){
             val startTime = System.currentTimeMillis()
 
             //region This is the best practice since it takes around 1027 millisecond to executes
-            val deferred1 = async { calculateThings(10) }
-            val deferred2 = async { calculateThings(20) }
-            val deferred3 = async { calculateThings(30) }
-
-            val sum = deferred1.await() + deferred2.await() + deferred3.await()
+//            val deferred1 = async { calculateThings(10) }
+//            val deferred2 = async { calculateThings(20) }
+//            val deferred3 = async { calculateThings(30) }
+//
+//            val sum = deferred1.await() + deferred2.await() + deferred3.await()
             //endregion
 
             //region This is a bad practice since using await makes the execution takes 3000 millisecond
-//        val deferred1 = async { calculateThings(10) }.await()
-//        val deferred2 = async { calculateThings(20) }.await()
-//        val deferred3 = async { calculateThings(30) }.await()
+        val deferred1 = async { calculateThings(10) }.await()
+        val deferred2 = async { calculateThings(20) }.await()
+        val deferred3 = async { calculateThings(30) }.await()
 //
-//        val sum = deferred1 + deferred2 + deferred3
+        val sum = deferred1 + deferred2 + deferred3
             //endregion
 
-            println("async/await result = $sum")
+            val divided = async { sum/3 }.await()
+
+            println("async/await result = $divided")
 
             val endTime = System.currentTimeMillis()
 
             println("Time taken: ${endTime - startTime}")
         }
-
-    }
 }
 //endregion
 
