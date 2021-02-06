@@ -1,0 +1,27 @@
+A TYPECLASS is a specification that defines some behavior that can be implemented for any class.
+It doesn't relate to inheritance or any other concept of object-oriented programming.
+You can consider typeclasses as object wrappers.
+There are no typeclasses in the current version of Kotlin.
+But the ARROW LIBRARY (http://arrow-kt.io) brings the most popular data types, typeclasses, and
+abstractions from functional programming to the world of Kotlin.
+
+Arrow is a third-party library that contains popular abstractions, such as
+* Option
+* Try
+* Functor
+* Monad
+You can use them to write fully functional code in Kotlin. The Kotlin standard library doesn't contain any
+abstractions from functional programming. You can use this library to bring more functional features to your
+project. The following list shows the main features of Arrow:
+* Pattern
+* Type Classes
+* Data types
+* Effect
+* Optics
+* Integration
+In this example we are going to look at the most popular typeclasses, namely:
+- Functor
+- Monad
+- Immutability
+
+
