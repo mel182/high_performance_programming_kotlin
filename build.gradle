@@ -16,7 +16,6 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0-M1'
-    implementation "io.arrow-kt:arrow-core:0.11.0"
 //    implementation("io.reactivex.rxjava3:rxkotlin:3.0.3")
     // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-rx2
     runtime group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-rx2', version: '1.4.0-M1'
@@ -24,7 +23,17 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.10"
     implementation "org.jetbrains.kotlin:kotlin-serialization:1.4.10"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
+    def arrow_version = "0.11.0"
+    implementation "io.arrow-kt:arrow-core:$arrow_version"
+    implementation "io.arrow-kt:arrow-core-data:$arrow_version"
+    implementation "io.arrow-kt:arrow-optics:$arrow_version"
+    implementation "io.arrow-kt:arrow-syntax:$arrow_version"
+    implementation "io.arrow-kt:arrow-mtl:$arrow_version"
+    implementation "io.arrow-kt:arrow-recursion:$arrow_version"
+    implementation "io.arrow-kt:arrow-free:$arrow_version"
+    implementation "io.arrow-kt:arrow-aql:$arrow_version"
 }
 
 compileKotlin {
