@@ -76,7 +76,6 @@ private fun readOnlySet()
 //region Prevent duplicate values in set Example
 private fun preventDuplicateInSet()
 {
-
     // An example of set that cannot contain duplicate elements.
     // Even though we have added two pens into the setOf(),
     // there will be only one element of pen.
@@ -85,7 +84,6 @@ private fun preventDuplicateInSet()
     {
         println("Word found: ${word}")
     }
-
 }
 //endregion
 
