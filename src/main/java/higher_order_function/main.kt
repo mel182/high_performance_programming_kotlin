@@ -1,7 +1,5 @@
 package higher_order_function
 
-import function_composition.and
-
 data class Student(val firstName:String, val lastName:String, val age:Int)
 
 fun main() {
@@ -20,7 +18,19 @@ fun main() {
 
     val filterAge20 = students.filter(::ageMoreThan20).filter(::firstNameStartsWithE)
     println("Filter age older than 20 and firstname starts with: $filterAge20")
+
+    // Another addition example
+    val addition = doAddition()
+    print(addition(3,2))
+
 }
 
 fun ageMoreThan20(student:Student):Boolean = student.age > 20
 fun firstNameStartsWithE(student:Student):Boolean = student.firstName.toUpperCase().startsWith("E")
+
+
+fun doAddition():(Int,Int) -> Int {
+    return ::addNumbers
+}
+
+fun addNumbers(numOne:Int, numTwo:Int) = numOne.plus(numTwo)
