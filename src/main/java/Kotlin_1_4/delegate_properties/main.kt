@@ -10,4 +10,6 @@ fun main() {
 
     prop = "abc"
     prop = "xyz"
+
+    println("prop: ${prop}")
 }

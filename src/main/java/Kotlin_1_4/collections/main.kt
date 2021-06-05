@@ -23,9 +23,10 @@ fun main() {
     // flatmap
     val list = listOf("hello","kot","lin","world")
     val kotlin = list.flatMapIndexed { index: Int, s: String ->
+        println("flat map index: ${index} and s: ${s}")
         if (index in 1..2) s.toList() else emptyList()
     }
-    println(kotlin)
+    println("flat map: ${kotlin}")
 
     val studentList1 = listOf(
             Student("Student1",24),
@@ -51,7 +52,7 @@ fun main() {
 
     val testListStudent = listOf(studentList1,studentList2)
     val combined = testListStudent.flatMap { it }
-    println(combined)
+    println("combined: ${combined}")
 
     val combined2 = testListStudent.flatMapIndexed { index: Int, list: List<Student> ->
         if (index in 1..2) list else emptyList()
