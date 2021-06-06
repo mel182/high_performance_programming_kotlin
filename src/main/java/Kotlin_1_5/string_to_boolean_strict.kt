@@ -11,13 +11,13 @@ fun main() {
     // 'String.toBooleanStrictOrNull()' returns null for all inputs except the literals 'true' and 'false'.
     // Note: It is case sensitive, it must be in de lower case form otherwise it will throw an exception
 
-    println("boolean strict: ${stringValue.toBooleanStrict()}")
-    println("boolean strict or null: ${stringValue.toBooleanStrictOrNull()}")
+    println("boolean strict: ${stringValue.toBooleanStrict()}") // true
+    println("boolean strict or null: ${stringValue.toBooleanStrictOrNull()}") // true
 
     try {
         val stringInvalidBoolean = "Kotlin"
 
-        println("boolean strict or null: ${stringInvalidBoolean.toBooleanStrictOrNull()}")
+        println("boolean strict or null: ${stringInvalidBoolean.toBooleanStrictOrNull()}") // null
         println("boolean strict: ${stringInvalidBoolean.toBooleanStrict()}") // Exception
     }catch (e:Exception)
     {
