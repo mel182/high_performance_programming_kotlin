@@ -7,9 +7,8 @@ fun main() {
     // collection with the custom selector function and return the first non-null value.
 
     val data = listOf("Kotlin","1.5")
-    println(data.firstNotNullOf(String::toDoubleOrNull))
-    println(data.firstNotNullOfOrNull(String::toIntOrNull))
-
+    println(data.firstNotNullOf(String::toDoubleOrNull)) // 1.5
+    println(data.firstNotNullOfOrNull(String::toIntOrNull)) // null
 
     val nullDataList = listOf<String?>(null)
 
