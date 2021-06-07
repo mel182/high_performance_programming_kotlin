@@ -32,6 +32,7 @@ fun main() {
 
     println("is defined: ${titleCaseChar.isDefined()}") // true
 
-    println("is ISO control: ${titleCaseChar.isISOControl()}") // false
+    val iso_value_example = '\n'
+    println("is ISO control: ${iso_value_example.isISOControl()}") // true
     // Note: iso control check whether a char is an ISO control character
 }
