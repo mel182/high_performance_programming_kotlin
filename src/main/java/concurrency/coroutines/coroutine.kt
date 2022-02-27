@@ -54,13 +54,13 @@ fun exampleBlocking2() = runBlocking{
 //endregion
 
 //region Example blocking dispatcher
-// Running on another thread but still blocking the main thread
+// Running on another thread but still blocking the main.kt thread
 fun exampleBlockingDispatcher(){
     runBlocking(Dispatchers.Default) {
         println("One - from thread ${Thread.currentThread().name}")
         printlnDelayed("Two - from thread ${Thread.currentThread().name}")
     }
-    // Outside of runBlocking to show that it's running in the blocked main thread
+    // Outside of runBlocking to show that it's running in the blocked main.kt thread
     println("three - from thread ${Thread.currentThread().name}")
     // It still runs only after the runBlocking is fully executed.
 }
@@ -121,7 +121,7 @@ fun exampleLaunchCoroutineScope(){
             printlnDelayed("two - from thread ${Thread.currentThread().name}")
         }
 
-        // This dispatcher is intended for android to switch back to main thread
+        // This dispatcher is intended for android to switch back to main.kt thread
 //        launch(Dispatchers.Main) {
 //            printlnDelayed("two - from thread ${Thread.currentThread().name}")
 //        }
