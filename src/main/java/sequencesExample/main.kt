@@ -51,6 +51,13 @@ fun main() {
 
     println("Filtered : $filtered")
     println("Filtered2 : $filtered2")
+
+
+    val teamCheckTest = listExample.any { it.name is String && it.name == "Student 2" }
+
+    println("Team check example: ${teamCheckTest}")
+
+
 }
 
 

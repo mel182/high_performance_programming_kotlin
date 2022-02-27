@@ -3,7 +3,6 @@ package type_classes.functor
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
-import arrow.core.getOrElse
 
 // A Functor is a typeclass that can be mapped. You can consider it an interface that provides
 // the map method to map one value to another. From an object-oriented programming point of view,
@@ -18,9 +17,10 @@ fun main() {
     val bear = Bear(5)
     var teddy:Teddy? = null
 
-    Option<Bear>(bear).map {
-        teddy = Teddy(it.age)
-    }
+//    Option<Bear>(bear).map {
+//        teddy = Teddy(it.age)
+//    }
+
 
     println("Teddy bear: ${teddy}")
 

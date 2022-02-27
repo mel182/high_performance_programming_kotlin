@@ -1,7 +1,5 @@
 package type_classes.monad
 
-import arrow.core.extensions.list.monad.flatMap
-
 // Monad is a typeclass that has a single function, flatMap, and represents a sequence of executions.
 
 // Let's use a new feature in Kotlin called multiplatform projects to create a small example.

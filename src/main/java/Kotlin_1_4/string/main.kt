@@ -31,4 +31,11 @@ fun main() {
     println(test1 == test2)
     println(test1.contentEquals(test2))
 
+    val external_value = "external_value_"
+
+    val endpointStringBuilderTest = StringBuilder("test")
+    endpointStringBuilderTest.insertRange(0,external_value,0,external_value.length)
+
+    println("endpoint url: ${endpointStringBuilderTest.appendLine()}")
+
 }
