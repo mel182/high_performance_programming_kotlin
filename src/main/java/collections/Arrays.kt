@@ -21,4 +21,67 @@ fun main() {
     array.forEach {
         println("Item found: ${it}")
     }
+
+
+    // |-------------- Kotlin 1.4 update --------------|
+    //Arrays
+    var language = ""
+    val letters = arrayOf("k","o","t","l","i","n")
+    val fileExt = letters.onEach {
+        language += it
+    }.filterNot { it in "aeuio" }.take(2)
+            .joinToString(prefix = ".", separator = "")
+    println(language)
+    println(fileExt)
+
+    letters.shuffle()
+    println("Shuffle letters: ${letters.contentToString()}")
+
+    letters.reverse(0,3)
+    println("Letter reverse: ${letters.contentToString()}")
+
+    letters.sortDescending(2,5)
+    println("Sort descending: ${letters.contentToString()}")
+
+    println(letters.contentToString())
+
+    // ---------------
+
+    val letters2 = arrayOf("k","o","t","l","i","n")
+    val fileExt2 = letters.onEach {
+        language += it
+    }.filterNot { it in "aeuio" }.take(2)
+
+    println("file extension: ${fileExt2}")
+    // -----------------
+
+    // Byte-, char array and strings
+    // There are new functions for conversions between
+    // ByteArray.decodeToString() and String.encodeToByteArray()
+    // CharArray.concatToString() and String.toCharArray()
+    val str = "kotlin"
+    val array3 = str.toCharArray()
+    println(array3.concatToString())
+
+    // Array deque
+    // We've also added the ArrayDeque class – an implementation of a
+    // double-ended queue. Double-ended queue lets you can add or remove
+    // elements both at the beginning and the end of the queue in an
+    // amortized constant time. You can use a double-ended queue by default
+    // when you need a queue or a stack in your code.
+
+    // The ArrayDeque implementation uses a resizable array underneath: it
+    // stores the contents in a circular buffer, an Array, and resizes this
+    // Array only when it becomes full.
+    val deque = ArrayDeque(listOf(1,2,3))
+    deque.addFirst(0)
+    deque.addLast(4)
+
+    println("Array data insertion: ${deque}")
+    println("Deque array first: ${deque.first()}")
+    println("Deque array last: ${deque.last()}")
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque)
 }
