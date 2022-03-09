@@ -15,10 +15,11 @@ fun main() {
     )
 
     val filtered = listExample.asSequence().filter { it.name == "Student 1" }.map { it }.toList()
-    val filtered2 = listExample.asSequence().filter { it.name == "Student 2" }.map { it }.toList()
+    val filtered2 = listExample.asSequence().filter { it.name == "Student 10" }.map { it }.toList()
 //    val filtered2 = listExample.asSequence().filter { it.name == "Student 2" }.first() // Get first item from list
     // Note: It will throw a runtime exception if not found
 
+    println("filtered 10: ${filtered2}")
 
     for (studentFound in updatedList)
     {

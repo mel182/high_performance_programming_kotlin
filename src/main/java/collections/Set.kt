@@ -32,7 +32,7 @@ fun main() {
 
 //    setContainsExample()
 
-//    mutableSetExample()
+    mutableSetExample()
 
 //    unionSetsExample()
 
