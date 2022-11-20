@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class)
 
-package kotlin_1_6.coroutines
+package kotlin_1_7.coroutines
 
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi

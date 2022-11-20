@@ -1,4 +1,4 @@
-package kotlin_1_6.collection_builder
+package collections.collection_builder
 
 // In Kotlin 1.6.0, collection builder functions have been
 // promoted to Stable. Collections returned by collection

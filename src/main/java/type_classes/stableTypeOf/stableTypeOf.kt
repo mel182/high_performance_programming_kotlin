@@ -1,6 +1,5 @@
-package kotlin_1_6.stableTypeOf
+package type_classes.stableTypeOf
 
-import kotlin.jvm.internal.Intrinsics
 import kotlin.reflect.typeOf
 
 // Version 1.6.0 brings a Stable typeOf() function, closing one of the major roadmap items.

@@ -1,4 +1,4 @@
-package kotlin_1_6.splitting_regex_int_a_sequence
+package string.splitting_regex_int_a_sequence
 
 // The 'Regex.splitToSequence(CharSequence)' and 'CharSequence.splitToSequence(Regex)' functions
 //  are promoted to Stable. They split the string around matches of the given regex, but return

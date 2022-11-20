@@ -1,4 +1,4 @@
-package kotlin_1_6.new_read_line_function
+package new_read_line_function
 
 // Kotlin 1.6.0 offers new functions for handling standard input: readln() and readlnOrNull().
 // Earlier versions  | 1.6.0 alternative | Usage

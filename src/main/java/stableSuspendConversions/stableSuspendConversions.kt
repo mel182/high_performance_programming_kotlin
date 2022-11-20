@@ -1,4 +1,4 @@
-package kotlin_1_6.stableSuspendConversions
+package stableSuspendConversions
 
 import kotlinx.coroutines.runBlocking
 
