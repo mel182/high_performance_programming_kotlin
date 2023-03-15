@@ -1,4 +1,4 @@
-package kotlin_1_6.stable_duration
+package kotlin_1_7.stable_duration
 
 import kotlin.time.Duration.Companion.seconds
 // The Duration class for representing duration amounts

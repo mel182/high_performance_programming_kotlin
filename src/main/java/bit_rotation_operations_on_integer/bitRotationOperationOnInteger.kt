@@ -1,4 +1,4 @@
-package kotlin_1_6.bit_rotation_operations_on_integer
+package bit_rotation_operations_on_integer
 
 // In Kotlin 1.6.0, the rotateLeft() and rotateRight()
 // functions for bit manipulations became Stable.

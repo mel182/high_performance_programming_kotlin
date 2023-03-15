@@ -1,4 +1,4 @@
-package kotlin_1_6.stableSuspendingFunctionAsSupertype
+package suspend_functions.stableSuspendingFunctionAsSupertype
 
 import kotlinx.coroutines.*
 

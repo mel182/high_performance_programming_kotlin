@@ -1,4 +1,4 @@
-package kotlin_1_6.infix_comparable_compare_to
+package comparable.infix_comparable_compare_to
 
 // Version 1.6.0 added the infix extension function for Comparable.compareTo().
 // You can now use the infix form for comparing two objects for order.

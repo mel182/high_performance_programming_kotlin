@@ -1,4 +1,4 @@
-package kotlin_1_6.whenStatementChanges
+package when_statement
 
 // An exhaustive when statement contains branches for all possible types or values of its subject,
 // or for some types plus an else branch. It covers all possible cases, making your code safer.

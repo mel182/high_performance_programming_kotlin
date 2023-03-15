@@ -1,4 +1,4 @@
-package kotlin_1_6.optimizeDelegateProperties
+package delegate_properties.optimizeDelegateProperties
 
 // We optimized the generated JVM bytecode by omitting the
 // $delegate field and generating immediate access to the
