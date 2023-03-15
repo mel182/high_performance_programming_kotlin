@@ -23,4 +23,7 @@ fun main() {
         println(versionRegex.matchesAt(input = testText, index = 7))
     }
 
+    // 'matchAt()' returns the match if it's found, or null if it isn't
+    println(versionRegex.matchAt(testText,0)) // "null"
+    println(versionRegex.matchAt(testText,7)?.value) // "1.7.0"
 }
