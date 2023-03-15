@@ -22,7 +22,9 @@ fun main() {
 //        countExample()
 //        reducerExample()
 //        foldExample()
-        flattenFlowExample()
+//        flattenFlowExample()
+//        stateFlowExample()
+        sharedFlowExample()
     }
 }
 
@@ -199,6 +201,62 @@ private suspend fun flattenFlowExample() {
     }
     println("|--------- flat map concat ---------|")
 }
+
+//region State flow example
+private val _stateFlow = MutableStateFlow(0)
+private val stateFlow = _stateFlow.asStateFlow()
+
+private suspend fun stateFlowExample() {
+    // this is an example of state flow which is a hot flow
+    // meaning it will execute even when there is no collectors. Hence,
+    // the delays in the functions.
+    println("|--------- state flow example ---------|")
+    CoroutineScope(Dispatchers.IO).launch {
+        stateFlow.collect { value ->
+            println("value: $value")
+        }
+    }
+    delay(2000)
+    increaseValue()
+    println("|--------- state flow example ---------|")
+}
+
+private suspend fun increaseValue() {
+    while (_stateFlow.value < 10){
+        delay(1000)
+        _stateFlow.value += 1
+    }
+}
+//endregion
+
+//region Shared flow example
+private val _sharedFlow = MutableSharedFlow<Int>()
+//private val _sharedFlow = MutableSharedFlow<Int>(replay = 2) // this is with the replay cache,
+                                                             // in this case there is max two event cache
+private val sharedFlow = _sharedFlow.asSharedFlow()
+
+private suspend fun sharedFlowExample() {
+
+    // This is a shared flow example that can have multiple collectors.
+    // Note: This is also a hot flow
+    println("|--------- shared flow example ---------|")
+    CoroutineScope(Dispatchers.IO).launch {
+        sharedFlow.collect { value ->
+            println("collector 1 value: $value")
+        }
+    }
+
+    CoroutineScope(Dispatchers.IO).launch {
+        sharedFlow.collect { value ->
+            println("collector 2 value: $value")
+        }
+    }
+    _sharedFlow.emit(20)
+    delay(2000)
+    _sharedFlow.emit(10)
+    println("|--------- shared flow example ---------|")
+}
+//endregion
 
 // This emit number with delay
 fun sendNumbers(): Flow<Int> = flow {

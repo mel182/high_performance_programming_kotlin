@@ -19,8 +19,23 @@ fun main() {
     val testString = ""
     println(testString)
 
-
-
     //println(testString.contains(null))
+
+    val item = ListItemTest12(name = "John")
+
+    val wrapper = ListItemTestWrapper()
+    item.let(wrapper::setTestListItem)
+
+}
+
+
+data class ListItemTest12(val name: String)
+
+class ListItemTestWrapper {
+
+    fun setTestListItem(item: ListItemTest12) {
+        println("list item passed: $item")
+    }
+
 
 }
