@@ -41,7 +41,7 @@ dependencies {
 compileKotlin {
     kotlinOptions {
         jvmTarget = "16"
-        languageVersion = "1.6"
+        languageVersion = "1.8"
     }
 }
 

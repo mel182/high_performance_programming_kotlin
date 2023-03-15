@@ -25,11 +25,13 @@ fun sendMessage(contact: Contact, message: String) {
     // in 1.7, add 'false' branch or 'else' branch instead
     when(message.isEmpty()) {
         true -> return
+        else -> return
     }
 
     // Warning: non exhaustive 'when' statements on sealed class/interface will
     // be prohibited in 1.7, add 'is TextMessage' branch or 'else' branch instead
     when(contact) {
-        is Contact.PhoneCall -> TODO()
+        is Contact.PhoneCall -> {}
+        else -> {}
     }
 }
