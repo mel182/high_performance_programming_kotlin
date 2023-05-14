@@ -8,7 +8,7 @@ import wz_retrofit3_concept.request.RequestBuilder
 import java.io.IOException
 import java.lang.reflect.Method
 
-class Part<T>(private val method:Method, private val parameter:Int, private val headers: Headers, private val converter: Converter<T, String>): ParameterHandler<T>() {
+class Part<T>(private val method:Method, private val parameter:Int, private val headers: Headers, private val converter: Converter<Any, RequestBody>?): ParameterHandler<T>() {
 
     override fun apply(builder: RequestBuilder, values: T?) {
 
@@ -16,7 +16,7 @@ class Part<T>(private val method:Method, private val parameter:Int, private val 
             return
 
         val body = try {
-            converter.convert(values)
+            converter?.convert(values)
         }catch (e:IOException) {
             throwParameterError(method = method, parameter = parameter, message = "Unable to convert $values to RequestBody",e)
         }

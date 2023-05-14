@@ -3,12 +3,14 @@ package wz_retrofit3_concept.request
 import okhttp3.Headers
 import okhttp3.MediaType
 import wz_retrofit3_concept.Retrofit3
-import wz_retrofit3_concept.delegates.httpMethodAndPath.HttpMethodAndPathParserDelegate
 import wz_retrofit3_concept.delegates.MethodPathResult
+import wz_retrofit3_concept.delegates.ParameterParserDelegate
+import wz_retrofit3_concept.delegates.httpMethodAndPath.HttpMethodAndPathParserDelegate
 import wz_retrofit3_concept.exceptions.throwMethodError
 import wz_retrofit3_concept.parameter.ParameterHandler
 import java.lang.reflect.Method
 import java.lang.reflect.Type
+
 
 class RequestFactory {
 
@@ -99,7 +101,7 @@ class RequestFactory {
         var relativeUrlParamNames:Set<String>? = null
         private set
 
-        val parameterHandlers: ArrayList<ParameterHandler<*>> = ArrayList()
+        var parameterHandlers: ArrayList<ParameterHandler<*>> = ArrayList()
 
         fun build():RequestFactory? {
 
@@ -111,7 +113,6 @@ class RequestFactory {
                 mapData(result = parseResult)
             }
 
-
             println("http method: $httpMethod")
             if (httpMethod.isBlank())
                 throwMethodError(method = method, message = "HTTP method annotation is required (e.g., @GET, @POST, etc.).")
@@ -119,22 +120,49 @@ class RequestFactory {
             println("hasBody: $hasBody")
             if (!hasBody) {
 
-                if (!isMultiPart)
-                    throwMethodError(method = method, message = "Multipart can only be specified on HTTP methods with request body (e.g., @POST).")
+                if (isMultiPart)
+                    throwMethodError(method = method, message = "Error at request '$method' Multipart can only be specified on HTTP methods with request body (e.g., @POST).")
 
-                if (!isFormEncoded)
+                if (isFormEncoded)
                     throwMethodError(method = method, message = "FormUrlEncoded can only be specified on HTTP methods with request body (e.g., @POST).")
             }
-            return null
-            val parameterCount = parameterAnnotationsArray.size
-            parameterHandlers
 
+            val parameterParserResult by ParameterParserDelegate(builder = this)
 
-            for (annotationsFound in parameterAnnotationsArray) {
+            println("parameter parser result: ${parameterParserResult}")
 
 
 
+            //val parameterCount: Int = parameterAnnotationsArray.size
+            //parameterHandlers =  arrayOfNulls<ParameterHandler<*>>(parameterCount)
+
+            //println("parameter count: ${parameterAnnotationsArray.size}")
+
+//            for (annotationsFound in parameterAnnotationsArray) {
+//
+//                println("annotation found: $annotationsFound")
+//
+//            }
+
+
+
+
+            for (index in parameterAnnotationsArray.indices) {
+                println("parameter annotation index: $index")
+                println("parameter annotation item: ${parameterAnnotationsArray[index]}")
             }
+
+
+            return null
+//            val parameterCount = parameterAnnotationsArray.size
+//            parameterHandlers
+//
+//
+//            for (annotationsFound in parameterAnnotationsArray) {
+//
+//
+//
+//            }
 
             /*
             val testArray = arrayOf(1,2,3,4,5,6,7,8,9,10)

@@ -1,14 +1,21 @@
 package wz_retrofit3_concept
 
+import okhttp3.ResponseBody
+import okhttp3.ResponseBody.Companion.asResponseBody
+import okio.Buffer
+import java.io.IOException
 import java.lang.reflect.*
 import java.lang.reflect.Array
+import kotlin.Annotation
 import kotlin.Any
+import kotlin.Boolean
 import kotlin.IllegalArgumentException
 import kotlin.Int
 import kotlin.String
 import kotlin.Throws
 import kotlin.require
 import kotlin.requireNotNull
+
 
 fun getParameterUpperBound(index: Int, type: ParameterizedType?): Type {
     requireNotNull(type) { "type == null" }
@@ -46,3 +53,46 @@ fun getRawType(type:Type?): Class<*> {
 }
 
 fun getSystemPlatform(): String = System.getProperty("java.vm.name")
+
+fun isAnnotationPresent(annotations: kotlin.Array<Annotation>, _class: Class<out Annotation>): Boolean {
+    for (annotation in annotations) {
+        if (_class.isInstance(annotation)) {
+            return true
+        }
+    }
+    return false
+}
+
+@Throws(IOException::class)
+fun buffer(body: ResponseBody): ResponseBody? {
+    val buffer = Buffer()
+    body.source().readAll(buffer)
+    return buffer.asResponseBody(body.contentType(), body.contentLength())
+}
+
+//fun resolve(context:Type, contextRawType:Class<*>, toResolve:Type): Type {
+//
+//    while (true) {
+//
+//        return if (toResolve is TypeVariable<*>) {
+//
+//
+//        } else if (toResolve is Class<*> && toResolve.isArray) {
+//
+//        } else if (toResolve is GenericArrayType) {
+//
+//        } else if (toResolve is ParameterizedType) {
+//
+//        } else if (toResolve is WildcardType) {
+//
+//        } else {
+//            toResolve
+//        }
+//    }
+//
+//
+//}
+
+//fun resolveVariableType()
+
+

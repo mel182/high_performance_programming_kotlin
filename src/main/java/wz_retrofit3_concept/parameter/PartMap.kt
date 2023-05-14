@@ -7,7 +7,15 @@ import wz_retrofit3_concept.exceptions.throwParameterError
 import wz_retrofit3_concept.request.RequestBuilder
 import java.lang.reflect.Method
 
-class PartMap<T>(private val method:Method, private val parameter: Int, private val valueConverter: Converter<T, RequestBody>, private val transferEncoding: String): ParameterHandler<Map<String, T>>() {
+class PartMap<T>(private val method:Method, private val parameter: Int, private val transferEncoding: String): ParameterHandler<Map<String, T>>() {
+
+    private var valueConverter: Converter<T, RequestBody>? = null
+
+    fun setValueConverter(_valueConverter: Converter<T, RequestBody>?): PartMap<T> {
+        this.valueConverter = _valueConverter
+        return this
+    }
+
 
     override fun apply(builder: RequestBuilder, values: Map<String, T>?) {
 
@@ -23,7 +31,7 @@ class PartMap<T>(private val method:Method, private val parameter: Int, private 
                     "Content-Transfer-Encoding",
                     transferEncoding
             )
-            valueConverter.convert(entryValue as T)?.let {
+            valueConverter?.convert(entryValue as T)?.let {
                 builder.addPart(headers = headers, body = it)
             }
         }

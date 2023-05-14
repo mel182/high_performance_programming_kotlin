@@ -2,6 +2,7 @@ package wz_retrofit3_concept
 
 import com.custom.http.client.annotation.http.call_properties.Body
 import wz_retrofit3_concept.annotation.http.method.GET
+import wz_retrofit3_concept.converter.Converter
 import wz_retrofit3_concept.platform.Platform
 import wz_retrofit3_concept.services.ServiceMethod
 import java.lang.reflect.InvocationHandler
@@ -21,19 +22,24 @@ fun main() {
     println("Title: ${retrofit3.getBuilder().title}")
     println("Url: ${retrofit3.getBuilder().url}")
     val test = retrofit3.create(EndPointTest::class.java)
-    println("test -> test: ${test.test("test",1, body = "body")}")
+    //"test",1
+    println("test -> test: ${test.test(body = "Test")}")
 }
 
 interface EndPointTest {
 
+    //test:String, age:Int
+    //@Body body:String
     @GET("/book/all")
-    fun test(test:String, age:Int, @Body body:String): String
+    fun test(@Body body:String): String
 
 }
 
 class Retrofit3(private val builder:Builder) {
 
     private val serviceMethodCache: ConcurrentHashMap<Method, ServiceMethod<*>> = ConcurrentHashMap()
+
+    val converterFactories: List<Converter.Factory> = ArrayList()
 
     fun getBuilder(): Builder = builder
 
