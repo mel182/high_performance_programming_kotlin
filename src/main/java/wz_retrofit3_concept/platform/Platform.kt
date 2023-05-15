@@ -2,12 +2,14 @@ package wz_retrofit3_concept.platform
 
 import wz_retrofit3_concept.call.CompletableFutureCallAdapterFactory
 import wz_retrofit3_concept.call.DefaultCallAdapterFactory
+import wz_retrofit3_concept.converter.Converter
 import wz_retrofit3_concept.getSystemPlatform
 import wz_retrofit3_concept.interfaces.CallAdapter
 import java.lang.invoke.MethodHandles
 import java.lang.invoke.MethodHandles.Lookup
 import java.lang.reflect.Constructor
 import java.lang.reflect.Method
+import java.util.*
 import java.util.concurrent.Executor
 
 
@@ -53,6 +55,8 @@ open class Platform(private val hasJava8Types:Boolean = false) {
     }
 
     open fun defaultCallAdapterFactoriesSize(): Int = if (hasJava8Types) 2 else 1
+
+    open fun defaultConverterFactories(): List<Converter.Factory> = emptyList()
 
     open fun defaultConverterFactoriesSize(): Int = if (hasJava8Types) 1 else 0
 
