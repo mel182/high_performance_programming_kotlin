@@ -1,4 +1,4 @@
-package inline_classes
+package value_classes
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
