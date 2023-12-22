@@ -1,4 +1,4 @@
-package kotlin_1.`7`
+package non_nullable_types
 
 //You can mark a generic type parameter as definitely non-nullable at
 // the use site with the new syntax T & Any. The syntactic form comes

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalStdlibApi::class)
 
-package kotlin_1.`7`
+package access_annotation
 
 import kotlin.reflect.KAnnotatedElement
 import kotlin.reflect.full.findAnnotations

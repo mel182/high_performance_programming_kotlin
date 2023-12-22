@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalStdlibApi::class)
 
-package kotlin_1.`8`
+package cbrt_function
 
 import kotlin.math.cbrt
 

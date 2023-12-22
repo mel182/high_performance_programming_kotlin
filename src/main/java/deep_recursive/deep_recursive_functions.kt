@@ -1,4 +1,4 @@
-package kotlin_1.`7`
+package deep_recursive
 
 // Deep recursive functions have been available as an experimental
 // feature since Kotlin 1.4.0, and they are now Stable in Kotlin 1.7.0.
@@ -7,7 +7,7 @@ package kotlin_1.`7`
 // This allows you to run very deep recursive computations.
 // To call a deep recursive function, invoke it.
 
-class Tree(val left:Tree?, val right:Tree?)
+class Tree(val left: Tree?, val right: Tree?)
 
 val calculateDepth = DeepRecursiveFunction<Tree?, Int> { t ->
     if (t == null) 0 else maxOf(

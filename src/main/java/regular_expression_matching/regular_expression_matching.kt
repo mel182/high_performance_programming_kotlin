@@ -1,4 +1,4 @@
-package kotlin_1.`7`
+package regular_expression_matching
 
 // The Regex.matchAt() and Regex.matchesAt() functions, introduced in 1.5.30,
 // are now Stable. They provide a way to check whether a regular expression

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalTime::class)
 
-package kotlin_1.`7`
+package time_mark
 
 import kotlin.time.ExperimentalTime
 import kotlin.time.TimeSource
@@ -13,6 +13,7 @@ import kotlin.time.TimeSource
 // Especially when measuring a piece of code that is part of a hot path, this can help
 // minimize the performance impact of the measurement:
 
+@OptIn(ExperimentalTime::class)
 fun main() {
 
     val mark = TimeSource.Monotonic.markNow() // Returned `TimeMark` is inline class

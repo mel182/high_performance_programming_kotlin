@@ -1,4 +1,4 @@
-package kotlin_1.`7`
+package inline_value_class_delegation
 
 //If you want to create a lightweight wrapper for a value or class instance,
 // it's necessary to implement all interface methods by hand. Implementation
@@ -11,7 +11,7 @@ interface Bar {
 }
 
 @JvmInline
-value class BarWrapper(val bar:Bar): Bar by bar
+value class BarWrapper(val bar: Bar): Bar by bar
 
 fun main() {
     println("Main function called!")

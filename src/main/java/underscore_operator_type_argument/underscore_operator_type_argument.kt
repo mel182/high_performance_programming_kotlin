@@ -1,4 +1,4 @@
-package kotlin_1.`7`
+package underscore_operator_type_argument
 
 //Kotlin 1.7.0 introduces an underscore operator, _, for type arguments.
 // You can use it to automatically infer a type argument when other types are specified.
@@ -24,7 +24,7 @@ object Runner {
 fun main() {
 
     // T is inferred as String because SomeImplementation derives from SomeClass<String>
-    val s = Runner.run<StringImplementation,_>()
+    val s = Runner.run<StringImplementation, _>()
     println("S: $s")
 
     // T is inferred as Int because OtherImplementation derives from SomeClass<Int>
